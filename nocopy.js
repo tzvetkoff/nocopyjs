@@ -8,20 +8,20 @@ function nocopy(callback) {
         text = callback && callback.call ? callback(selection) || '' : '',
         element = document.createElement('p');
 
-        element.style.position = 'absolute';
-        element.style.left = '-31337px';
-        element.style.top = '-31337px';
-        element.innerHTML = text;
+      element.style.position = 'absolute';
+      element.style.left = '-31337px';
+      element.style.top = '-31337px';
+      element.innerHTML = text;
 
-        body.appendChild(element);
-        selection.selectAllChildren(element);
+      body.appendChild(element);
+      selection.selectAllChildren(element);
 
-        setTimeout(function() {
-          document.body.removeChild(element);
+      setTimeout(function() {
+        document.body.removeChild(element);
 
-          selection.removeAllRanges();
-          selection.addRange(firstRange);
-        }, 0);
+        selection.removeAllRanges();
+        selection.addRange(firstRange);
+      }, 0);
     } catch (e) {
       // cry, cry, little baby!
     }
